@@ -11,10 +11,6 @@ License:	GPLv2
 Source0:	%{extname}-%{version}.tar.xz
 # Source0-md5:	17535842481ad8d699c977eff06345af
 URL:		http://markbokil.com/downloads/extensions/
-BuildRequires:	gnome-common
-BuildRequires:	intltool
-BuildRequires:	gnome-desktop-devel
-BuildRequires:	libgtop-devel
 Requires:	gnome-shell >= 3.6.0
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
