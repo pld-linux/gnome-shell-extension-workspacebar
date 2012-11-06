@@ -1,0 +1,48 @@
+--- workspacebar-20121027/extension.js~	2012-09-28 15:17:22.000000000 +0200
++++ workspacebar-20121027/extension.js	2012-11-06 19:14:03.458039714 +0100
+@@ -81,14 +81,14 @@
+         this.buttonBox = null;
+ 
+         // disconnect screen signals 
+-        for (x=0; x < this._screenSignals.length; x++) {
++        for (var x=0; x < this._screenSignals.length; x++) {
+             global.screen.disconnect(this._screenSignals[x]);
+         }
+         this._screenSignals = [];
+         this._screenSignals = null;
+ 
+         // disconnect settings bindings 
+-        for (x=0; x < this._settingsSignals.length; x++) {
++        for (var x=0; x < this._settingsSignals.length; x++) {
+             global.screen.disconnect(this._settingsSignals[x]);
+         }
+         this._settingsSignals = [];
+@@ -142,7 +142,7 @@
+         let workSpaces = global.screen.n_workspaces - 1;
+         let str = '';
+ 
+-        for (x=0; x <= workSpaces; x++) {
++        for (var x=0; x <= workSpaces; x++) {
+             str =  (x+1).toString();
+             if ( x == this.currentWorkSpace) {
+                 this.labels[x] = new St.Label({ text: _(str), style_class: "activeBtn" });
+@@ -174,7 +174,7 @@
+         if (children) {
+             let len = children.length;
+ 
+-            for(x=len-1; x >= 0  ; x--) {
++            for(var x=len-1; x >= 0  ; x--) {
+                 box.remove_actor(children[x]);
+             }
+         }
+--- workspacebar-20121027/prefs.js~	2012-09-28 15:17:22.000000000 +0200
++++ workspacebar-20121027/prefs.js	2012-11-06 19:15:23.201370232 +0100
+@@ -55,7 +55,7 @@
+         let currentPosition = this._settings.get_string(Keys.POSITION);
+         let count = 4;
+         let str = '';
+-        for (element in RADIO_BTNS) {
++        for (let element in RADIO_BTNS) {
+             let str = RADIO_BTNS[element];
+             radio = new Gtk.RadioButton({ group: radio, label: this._capitalised(str), valign: Gtk.Align.START });
+             this._grid.attach(radio, count, 1, 1, 1);

@@ -2,7 +2,7 @@
 Summary:	A toolbar for your panel that allows you to switch workspaces
 Name:		gnome-shell-extension-%{extname}
 Version:	20121027
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		X11/Applications
 # $ git clone git://github.com/mbokil/workspacebar.git
@@ -10,6 +10,7 @@ Group:		X11/Applications
 # $ git archive --format=tar --prefix=%{name}-%{version}/ master | xz > ../%{name}-%{version}.tar.xz
 Source0:	%{extname}-%{version}.tar.xz
 # Source0-md5:	17535842481ad8d699c977eff06345af
+Patch0:		no-undeclared.patch
 URL:		http://markbokil.com/downloads/extensions/
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
@@ -24,6 +25,7 @@ Also there is an option to display the Overview on mouse entry.
 
 %prep
 %setup -q -n %{extname}-%{version}
+%patch0 -p1
 
 %install
 rm -rf $RPM_BUILD_ROOT
